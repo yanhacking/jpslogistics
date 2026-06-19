@@ -161,14 +161,14 @@ jobs:
 
                   <!-- CTA Button -->
                   <div style="text-align:center;">
-                    <a href="https://yanhacking.github.io/jpslogistics"
+                    <a href="https://yanrooven.fr/jpslogistics/"
                        style="display:inline-block;background:linear-gradient(135deg,#1d4ed8,#6d28d9);color:white;padding:16px 32px;border-radius:12px;text-decoration:none;font-weight:700;font-size:16px;box-shadow:0 4px 16px rgba(29,78,216,0.4);">
                       📊 Voir la progression en détail →
                     </a>
                   </div>
 
                   <div style="text-align:center;margin-top:16px;">
-                    <a href="https://yanhacking.github.io/jpslogistics/plan.html"
+                    <a href="https://yanrooven.fr/jpslogistics/plan.html"
                        style="color:#1d4ed8;text-decoration:none;font-size:13px;">
                       📄 Voir le plan technique complet
                     </a>
