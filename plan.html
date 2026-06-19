@@ -574,30 +574,30 @@
           <tr>
             <th>Groupe</th>
             <th>Tables</th>
-            <th>RLS</th>
+            <th title="Row-Level Security prévue">RLS Prévu</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td><strong>Tenancy</strong></td><td><code>tenants</code>, <code>users</code>, <code>roles_permissions</code>, <code>sessions</code>, <code>audit_logs</code></td><td class="td-center">✅</td></tr>
-          <tr><td><strong>CRM</strong></td><td><code>contacts</code>, <code>contact_persons</code>, <code>leads</code>, <code>activities</code></td><td class="td-center">✅</td></tr>
-          <tr><td><strong>Pricing</strong></td><td><code>tariffs</code>, <code>rate_components</code>, <code>fx_rate_snapshots</code>, <code>margin_rules</code></td><td class="td-center">✅</td></tr>
-          <tr><td><strong>Booking</strong></td><td><code>quote_drafts</code>, <code>quotes</code>, <code>bookings</code></td><td class="td-center">✅</td></tr>
-          <tr><td><strong>Shipments</strong></td><td><code>shipments</code> (mode enum), <code>shipment_events</code>, <code>shipment_milestones</code>, <code>shipment_containers</code>, <code>shipment_cargo_lines</code></td><td class="td-center">✅</td></tr>
-          <tr><td><strong>Documents</strong></td><td><code>shipping_documents</code> (HAWB|MAWB|HBL|MBL|BOL|PACKING_LIST|CERT_ORIGIN)</td><td class="td-center">✅</td></tr>
-          <tr><td><strong>WMS</strong></td><td><code>warehouses</code>, <code>warehouse_locations</code>, <code>asns</code>, <code>cargo_pieces</code>, <code>scan_events</code>, <code>ulds</code>, <code>uld_pieces</code></td><td class="td-center">✅</td></tr>
-          <tr style="background:#f0fdfa;"><td><strong>WMS Cross-dock</strong> 🆕</td><td><code>staging_lanes</code> (target_dwell_minutes, assigned_at, status)</td><td class="td-center">✅</td></tr>
-          <tr style="background:#f0fdfa;"><td><strong>Air Charter</strong> 🆕</td><td><code>charter_flights</code>, <code>charter_allocations</code></td><td class="td-center">✅</td></tr>
-          <tr><td><strong>Billing</strong></td><td><code>invoices</code>, <code>invoice_lines</code>, <code>payments</code>, <code>carrier_invoices</code>, <code>tariff_reconciliation</code>, <code>accounting_sync_outbox</code></td><td class="td-center">✅</td></tr>
-          <tr><td><strong>Exceptions</strong></td><td><code>exception_queue</code>, <code>exception_comments</code>, <code>escalation_rules</code>, <code>rules_engine_configs</code></td><td class="td-center">✅</td></tr>
+          <tr><td><strong>Tenancy</strong></td><td><code>tenants</code>, <code>users</code>, <code>roles_permissions</code>, <code>sessions</code>, <code>audit_logs</code></td><td class="td-center">🔒</td></tr>
+          <tr><td><strong>CRM</strong></td><td><code>contacts</code>, <code>contact_persons</code>, <code>leads</code>, <code>activities</code></td><td class="td-center">🔒</td></tr>
+          <tr><td><strong>Pricing</strong></td><td><code>tariffs</code>, <code>rate_components</code>, <code>fx_rate_snapshots</code>, <code>margin_rules</code></td><td class="td-center">🔒</td></tr>
+          <tr><td><strong>Booking</strong></td><td><code>quote_drafts</code>, <code>quotes</code>, <code>bookings</code></td><td class="td-center">🔒</td></tr>
+          <tr><td><strong>Shipments</strong></td><td><code>shipments</code> (mode enum), <code>shipment_events</code>, <code>shipment_milestones</code>, <code>shipment_containers</code>, <code>shipment_cargo_lines</code></td><td class="td-center">🔒</td></tr>
+          <tr><td><strong>Documents</strong></td><td><code>shipping_documents</code> (HAWB|MAWB|HBL|MBL|BOL|PACKING_LIST|CERT_ORIGIN)</td><td class="td-center">🔒</td></tr>
+          <tr><td><strong>WMS</strong></td><td><code>warehouses</code>, <code>warehouse_locations</code>, <code>asns</code>, <code>cargo_pieces</code>, <code>scan_events</code>, <code>ulds</code>, <code>uld_pieces</code></td><td class="td-center">🔒</td></tr>
+          <tr style="background:#f0fdfa;"><td><strong>WMS Cross-dock</strong> 🆕</td><td><code>staging_lanes</code> (target_dwell_minutes, assigned_at, status)</td><td class="td-center">🔒</td></tr>
+          <tr style="background:#f0fdfa;"><td><strong>Air Charter</strong> 🆕</td><td><code>charter_flights</code>, <code>charter_allocations</code></td><td class="td-center">🔒</td></tr>
+          <tr><td><strong>Billing</strong></td><td><code>invoices</code>, <code>invoice_lines</code>, <code>payments</code>, <code>carrier_invoices</code>, <code>tariff_reconciliation</code>, <code>accounting_sync_outbox</code></td><td class="td-center">🔒</td></tr>
+          <tr><td><strong>Exceptions</strong></td><td><code>exception_queue</code>, <code>exception_comments</code>, <code>escalation_rules</code>, <code>rules_engine_configs</code></td><td class="td-center">🔒</td></tr>
           <tr><td><strong>Compliance</strong></td><td><code>compliance_rules</code>, <code>compliance_checks</code>, <code>customs_entries</code></td><td class="td-center">—</td></tr>
-          <tr style="background:#f0fdfa;"><td><strong>IoT</strong> 🆕</td><td><code>telemetry_devices</code>, <code>telemetry_readings</code> (TimescaleDB hypertable)</td><td class="td-center">✅</td></tr>
-          <tr><td><strong>Intégrations</strong></td><td><code>edi_raw_messages</code>, <code>carrier_connections</code>, <code>webhook_subscriptions</code>, <code>webhook_deliveries</code>, <code>api_keys</code>, <code>processed_events</code></td><td class="td-center">✅</td></tr>
-          <tr><td><strong>Notifications</strong></td><td><code>notification_templates</code>, <code>notifications</code>, <code>notification_deliveries</code></td><td class="td-center">✅</td></tr>
+          <tr style="background:#f0fdfa;"><td><strong>IoT</strong> 🆕</td><td><code>telemetry_devices</code>, <code>telemetry_readings</code> (TimescaleDB hypertable)</td><td class="td-center">🔒</td></tr>
+          <tr><td><strong>Intégrations</strong></td><td><code>edi_raw_messages</code>, <code>carrier_connections</code>, <code>webhook_subscriptions</code>, <code>webhook_deliveries</code>, <code>api_keys</code>, <code>processed_events</code></td><td class="td-center">🔒</td></tr>
+          <tr><td><strong>Notifications</strong></td><td><code>notification_templates</code>, <code>notifications</code>, <code>notification_deliveries</code></td><td class="td-center">🔒</td></tr>
         </tbody>
       </table>
       <div class="callout callout-blue">
-        <div class="callout-icon">🔐</div>
-        <div>Row-Level Security PostgreSQL sur toutes les tables tenant-scoped. Middleware Fastify injecte <code>SET app.current_tenant = $tenant_id</code> par requête, AVANT toute query.</div>
+        <div class="callout-icon">🔒</div>
+        <div><strong>🔒 = RLS prévue</strong> (pas encore implémentée — sera activée à la Phase 1). Row-Level Security PostgreSQL sur toutes les tables tenant-scoped. Middleware Fastify injecte <code>SET app.current_tenant = $tenant_id</code> par requête, AVANT toute query. <strong>— = non applicable</strong> (tables globales sans isolation tenant).</div>
       </div>
     </div>
   </div>
