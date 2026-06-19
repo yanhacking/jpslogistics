@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>LogiSaaS — Suivi de Projet</title>
+<title>LogiSaaS — Suivi de Projet v2.0</title>
 <style>
   :root {
     --navy:   #0f2044;
@@ -207,9 +207,9 @@
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-tag">Suivi de Projet — Accès Client</div>
+  <div class="hero-tag">Suivi de Projet v2.0 — Accès Client</div>
   <div class="hero-title">LogiSaaS Platform</div>
-  <div class="hero-sub">Cloud-Native Freight &amp; Warehouse SaaS</div>
+  <div class="hero-sub">Cloud-Native Freight &amp; Warehouse SaaS · 5 Phases · 30 Semaines · 40+ Tables</div>
   <div class="hero-big-pct" id="big-pct">–<span>%</span></div>
   <div class="hero-tasks" id="hero-tasks">Chargement…</div>
   <div class="hero-bar-wrap">
@@ -245,11 +245,11 @@ const API   = `https://api.github.com/repos/${REPO}/commits/${BRANCH}`;
 
 // Phase definitions: match the ## headers in ROADMAP.md
 const PHASES = [
-  { id:'p1', label:'🏗️ Phase 1 — Foundation', weeks:'Sem. 1–2', colorFill:'fill-blue',   colorBorder:'ph1' },
-  { id:'p2', label:'📦 Phase 2 — Modules Core', weeks:'Sem. 3–12', colorFill:'fill-purple', colorBorder:'ph2' },
-  { id:'p3', label:'🔌 Phase 3 — Intégrations', weeks:'Sem. 13–14', colorFill:'fill-cyan',   colorBorder:'ph3' },
-  { id:'p4', label:'🤖 Phase 4 — IA & Avancé', weeks:'Sem. 15–18', colorFill:'fill-green',  colorBorder:'ph4' },
-  { id:'p5', label:'🚀 Phase 5 — Déploiement', weeks:'Sem. 19–20', colorFill:'fill-orange', colorBorder:'ph5' },
+  { id:'p1', label:'🏗️ Phase 1 — Foundation',        weeks:'Sem. 1–2',   colorFill:'fill-blue',   colorBorder:'ph1' },
+  { id:'p2', label:'📦 Phase 2 — MVP Core',            weeks:'Sem. 3–14',  colorFill:'fill-purple', colorBorder:'ph2' },
+  { id:'p3', label:'🔌 Phase 3 — Scale the Modules',   weeks:'Sem. 15–22', colorFill:'fill-cyan',   colorBorder:'ph3' },
+  { id:'p4', label:'🛡️ Phase 4 — Defensibility',      weeks:'Sem. 23–28', colorFill:'fill-green',  colorBorder:'ph4' },
+  { id:'p5', label:'🚀 Phase 5 — Déploiement',         weeks:'Sem. 29–30', colorFill:'fill-orange', colorBorder:'ph5' },
 ];
 
 // Keywords that mark the start of each phase section in the markdown
@@ -257,8 +257,8 @@ const PHASE_MARKERS = [
   '## 🏗️ PHASE 1',
   '## 📦 PHASE 2',
   '## 🔌 PHASE 3',
-  '## 🤖 PHASE 4',
-  '## 🚀 Environnements',
+  '## 🛡️ PHASE 4',
+  '## 🚀 PHASE 5',
 ];
 
 // ═══════════════════════════════════════════════════
