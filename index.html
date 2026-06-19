@@ -252,38 +252,32 @@ const PHASES = [
   { id:'p5', label:'🚀 Phase 5 — Déploiement',         weeks:'Sem. 29–30', colorFill:'fill-orange', colorBorder:'ph5' },
 ];
 
-// Keywords that mark the start of each phase section in the markdown
-const PHASE_MARKERS = [
-  '## 🏗️ PHASE 1',
-  '## 📦 PHASE 2',
-  '## 🔌 PHASE 3',
-  '## 🛡️ PHASE 4',
-  '## 🚀 PHASE 5',
-];
-
 // ═══════════════════════════════════════════════════
 //  PARSE MARKDOWN
 // ═══════════════════════════════════════════════════
 function parseMarkdown(md) {
   const lines = md.split('\n');
 
-  // Global counts
-  const allDone  = (md.match(/- \[x\]/gi) || []).length;
-  const allTodo  = (md.match(/- \[ \]/g)  || []).length;
+  // Global counts — anchored to line start (^) to avoid matching
+  // `- [x]` inside table cells or backtick examples in the legend.
+  const allDone  = (md.match(/^- \[x\]/gim) || []).length;
+  const allTodo  = (md.match(/^- \[ \]/gm)  || []).length;
   const allTotal = allDone + allTodo;
 
   // Per-phase
-  const phaseData = [];
   let currentPhase = -1;
   let phaseSections = Array(PHASES.length).fill(null).map(() => ({ done:0, todo:0, items:[] }));
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
 
-    // Detect phase start
-    PHASE_MARKERS.forEach((marker, idx) => {
-      if (line.startsWith(marker)) { currentPhase = idx; }
-    });
+    // Detect phase start — regex-based, emoji-agnostic.
+    // Matches "## <anything> PHASE N" where N is 1–5.
+    const pm = line.match(/^## .+ PHASE (\d)/);
+    if (pm) {
+      const n = parseInt(pm[1], 10);
+      if (n >= 1 && n <= PHASES.length) currentPhase = n - 1;
+    }
 
     if (currentPhase < 0) continue;
 
@@ -324,7 +318,8 @@ function render(data, lastCommit) {
 
   // Hero
   document.getElementById('big-pct').innerHTML   = pct + '<span>%</span>';
-  document.getElementById('hero-tasks').textContent = `${allDone} tâches terminées sur ${allTotal} au total`;
+  const tacheLbl = allDone <= 1 ? 'tâche terminée' : 'tâches terminées';
+  document.getElementById('hero-tasks').textContent = `${allDone} ${tacheLbl} sur ${allTotal} au total`;
   document.getElementById('hero-fill').style.width  = pct + '%';
 
   // Last update
