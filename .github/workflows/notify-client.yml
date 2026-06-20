@@ -91,7 +91,7 @@ jobs:
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "${{ steps.progress.outputs.emoji }} LogiSaaS — Nouvelle étape : ${{ steps.progress.outputs.pct }}% complété"
           to: ${{ secrets.CLIENT_EMAIL }}
-          from: "LogiSaaS Dev Team <${{ secrets.EMAIL_SENDER }}>"
+          from: "Yan — Développeur LogiSaaS <${{ secrets.EMAIL_SENDER }}>"
           content_type: text/html
           body: |
             <!DOCTYPE html>
@@ -104,7 +104,7 @@ jobs:
                 <div style="background:linear-gradient(135deg,#0f2044,#1d4ed8,#6d28d9);border-radius:16px 16px 0 0;padding:40px;text-align:center;">
                   <div style="font-size:48px;margin-bottom:8px;">🚢</div>
                   <div style="color:white;font-size:28px;font-weight:900;letter-spacing:-1px;">LogiSaaS Platform</div>
-                  <div style="color:rgba(255,255,255,0.8);font-size:15px;margin-top:6px;">Mise à jour de progression du projet</div>
+                  <div style="color:rgba(255,255,255,0.8);font-size:15px;margin-top:6px;">Mise à jour par Yan, votre développeur</div>
                 </div>
 
                 <!-- Body -->
@@ -178,8 +178,8 @@ jobs:
 
                 <!-- Footer -->
                 <div style="text-align:center;padding:20px;color:#94a3b8;font-size:12px;">
-                  Email automatique généré par GitHub Actions · LogiSaaS Platform<br>
-                  Pour vous désabonner, contactez l'équipe de développement.
+                  Notification automatique · LogiSaaS Platform · Yan, Développeur<br>
+                  Pour toute question, répondez directement à cet email.
                 </div>
 
               </div>

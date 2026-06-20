@@ -2,9 +2,9 @@
 
 <div align="center">
 
-![Statut](https://img.shields.io/badge/Statut-Planification-orange?style=for-the-badge&logo=github)
+![Statut](https://img.shields.io/badge/Statut-En%20Cours-blue?style=for-the-badge&logo=github)
 ![Phase](https://img.shields.io/badge/Phase%20Actuelle-1%20%E2%80%94%20Foundation-blue?style=for-the-badge)
-![Progression](https://img.shields.io/badge/Progression%20Globale-0%25-red?style=for-the-badge)
+![Progression](https://img.shields.io/badge/Progression%20Globale-7%25-blue?style=for-the-badge)
 ![Mise à jour](https://img.shields.io/badge/Mis%20à%20jour-19%20Juin%202026-lightgrey?style=for-the-badge)
 
 **Version 2.0 — Blueprint révisé (Claude_Plan.pdf)**
@@ -41,46 +41,46 @@
 > **Objectif :** Base technique solide — monorepo, DB, auth, event bus — avant toute feature métier.
 
 ### ⚙️ Setup Projet & Monorepo
-- [ ] Initialisation monorepo Turborepo (`apps/web`, `apps/api`, `apps/workers`, `packages/`)
-- [ ] Docker Compose local (PostgreSQL, Redis, EventBridge ou Kafka)
-- [ ] TypeScript strict + ESLint + Prettier partagés via `packages/config`
-- [ ] Pipeline CI/CD GitHub Actions (lint → test → build → deploy)
-- [ ] Gestion secrets & variables d'environnement
-- [ ] Logging structuré (Pino)
+- [x] Initialisation monorepo Turborepo (`apps/web`, `apps/api`, `apps/workers`, `packages/`)
+- [x] Docker Compose local (PostgreSQL 15 + TimescaleDB, Redis)
+- [x] TypeScript strict + ESLint + Prettier partagés via `packages/config`
+- [x] Pipeline CI/CD GitHub Actions (lint → test → build → deploy)
+- [x] Gestion secrets & variables d'environnement (`.env.example` complet)
+- [x] Logging structuré (Pino)
 
 ### 🗄️ Base de Données — 40+ Tables Prisma
-- [ ] Groupe Tenancy — `tenants`, `users`, `roles_permissions`, `sessions`, `audit_logs`
-- [ ] Groupe CRM — `contacts`, `contact_persons`, `leads`, `activities`
-- [ ] Groupe Pricing — `tariffs`, `rate_components`, `fx_rate_snapshots`, `margin_rules`
-- [ ] Groupe Booking — `quote_drafts`, `quotes`, `bookings`
-- [ ] Groupe Shipments — `shipments` (mode enum: ocean_fcl | ocean_lcl | air | road | rail)
-- [ ] Groupe Shipments — `shipment_events`, `shipment_milestones`, `shipment_containers`, `shipment_cargo_lines`
-- [ ] Groupe Documents — `shipping_documents` (HAWB | MAWB | HBL | MBL | BOL | PACKING_LIST | CERT_ORIGIN)
-- [ ] Groupe WMS — `warehouses`, `warehouse_locations`, `asns`, `cargo_pieces`, `scan_events`
-- [ ] Groupe WMS — `ulds`, `uld_pieces`
-- [ ] 🆕 Groupe WMS Cross-dock — `staging_lanes` (`target_dwell_minutes`, `assigned_at`, `status`)
-- [ ] 🆕 Groupe Air Charter — `charter_flights`, `charter_allocations`
-- [ ] Groupe Billing — `invoices`, `invoice_lines`, `payments`, `carrier_invoices`, `tariff_reconciliation`, `accounting_sync_outbox`
-- [ ] Groupe Exceptions — `exception_queue`, `exception_comments`, `escalation_rules`, `rules_engine_configs`
-- [ ] Groupe Compliance — `compliance_rules`, `compliance_checks`, `customs_entries`
-- [ ] 🆕 Groupe IoT — `telemetry_devices`, `telemetry_readings` (TimescaleDB hypertable)
-- [ ] Groupe Intégrations — `edi_raw_messages`, `carrier_connections`, `webhook_subscriptions`, `webhook_deliveries`, `api_keys`, `processed_events`
-- [ ] Groupe Notifications — `notification_templates`, `notifications`, `notification_deliveries`
-- [ ] Row-Level Security PostgreSQL sur toutes les tables tenant-scoped
-- [ ] Middleware Fastify `SET app.current_tenant` par requête
+- [x] Groupe Tenancy — `tenants`, `users`, `sessions`, `audit_logs`
+- [x] Groupe CRM — `contacts`, `contact_persons`, `leads`, `activities`
+- [x] Groupe Pricing — `tariffs`, `rate_components`, `fx_rate_snapshots`, `margin_rules`
+- [x] Groupe Booking — `quote_drafts`, `quotes`, `quote_lines`, `bookings`
+- [x] Groupe Shipments — `shipments` (mode enum: ocean_fcl | ocean_lcl | air | road | rail)
+- [x] Groupe Shipments — `shipment_events`, `shipment_milestones`, `shipment_containers`, `shipment_cargo_lines`
+- [x] Groupe Documents — `shipping_documents` (HAWB | MAWB | HBL | MBL | BOL | PACKING_LIST | CERT_ORIGIN)
+- [x] Groupe WMS — `warehouses`, `warehouse_locations`, `asns`, `cargo_pieces`, `scan_events`
+- [x] Groupe WMS — `ulds`, `uld_pieces`
+- [x] 🆕 Groupe WMS Cross-dock — `staging_lanes` (`target_dwell_minutes`, `assigned_at`, `status`)
+- [x] 🆕 Groupe Air Charter — `charter_flights`, `charter_allocations`
+- [x] Groupe Billing — `invoices`, `invoice_lines`, `payments`, `carrier_invoices`, `accounting_sync_outbox`
+- [x] Groupe Exceptions — `exception_queue`, `exception_comments`, `escalation_rules`, `rules_engine_configs`
+- [x] Groupe Compliance — `compliance_rules`, `compliance_checks`, `customs_entries`
+- [x] 🆕 Groupe IoT — `telemetry_devices`, `telemetry_readings` (TimescaleDB hypertable)
+- [x] Groupe Intégrations — `edi_raw_messages`, `carrier_connections`, `webhook_subscriptions`, `webhook_deliveries`, `api_keys`, `processed_events`
+- [x] Groupe Notifications — `notification_templates`, `notifications`, `notification_deliveries`
+- [x] Row-Level Security PostgreSQL — policies + helper `current_tenant_id()`
+- [x] Middleware Fastify `SET app.current_tenant` par requête
 - [ ] Migrations initiales (`prisma migrate dev`) + seed data de démonstration
 
 ### 🔐 Authentification & Multi-Tenancy
-- [ ] Register / Login email + bcrypt
-- [ ] JWT access token (15 min) + refresh token (7 j)
+- [x] Register / Login email + bcrypt
+- [x] JWT access token (15 min) + refresh token (7 j)
 - [ ] SSO OIDC Google Workspace
 - [ ] SSO OIDC Microsoft Azure AD
-- [ ] 2FA TOTP (Google Authenticator / Authy)
+- [x] 2FA TOTP (Google Authenticator / Authy)
 - [ ] Invitation email (token signé 48 h)
 - [ ] Reset mot de passe
-- [ ] Middleware résolution tenant (sous-domaine ou header `X-Tenant-ID`)
-- [ ] Rôles : `ADMIN` | `OPS` | `FINANCE` | `WAREHOUSE` | `VIEWER`
-- [ ] IP allowlist configurable par tenant
+- [x] Middleware résolution tenant (sous-domaine ou header `X-Tenant-ID`)
+- [x] Rôles : `ADMIN` | `OPS` | `FINANCE` | `WAREHOUSE` | `VIEWER`
+- [x] IP allowlist configurable par tenant
 
 ---
 
